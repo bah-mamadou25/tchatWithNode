@@ -1,11 +1,15 @@
+app.set('view engine', 'ejs');
+
+
 const express = require('express');
 const bodyParser = require('body-parser');
 const path = require('path');
-
 const app = express();
 
+/* using session to delete the red error message if you reload the page 
+ * if before that user try to send empty  message
+ */
 const session = require('express-session')
-
 app.use(session({
     secret: 'ffgeez',
     resave: false,
@@ -13,7 +17,6 @@ app.use(session({
     cookie: { secure: false }
 }))
 
-app.set('view engine', 'ejs');
 
 
 app.use('/assets', express.static('public'));
