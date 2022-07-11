@@ -1,6 +1,3 @@
-app.set('view engine', 'ejs');
-
-
 const express = require('express');
 const bodyParser = require('body-parser');
 const path = require('path');
@@ -17,7 +14,7 @@ app.use(session({
     cookie: { secure: false }
 }))
 
-
+app.set('view engine', 'ejs');
 
 app.use('/assets', express.static('public'));
 let Message = require('./models/Message');
